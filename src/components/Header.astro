@@ -4,6 +4,8 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
+const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
+const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length > 0;
 ---
 
 <header
@@ -17,7 +19,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           href="#about"
           class="text-gray-700 hover:text-black transition-colors font-medium"
         >
-          About
+          Sobre mí
         </a>
       </li>
       {
@@ -27,7 +29,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#projects"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Projects
+              Proyectos
             </a>
           </li>
         )
@@ -39,7 +41,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#experience"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Experience
+              Experiencia
             </a>
           </li>
         )
@@ -51,7 +53,31 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
               href="#education"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Education
+              Formación
+            </a>
+          </li>
+        )
+      }
+      {
+        hasCertifications && (
+          <li>
+            <a
+              href="#certifications"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Certificaciones
+            </a>
+          </li>
+        )
+      }
+      {
+        hasPersonal && (
+          <li>
+            <a
+              href="#personal"
+              class="text-gray-700 hover:text-black transition-colors font-medium"
+            >
+              Personal
             </a>
           </li>
         )
