@@ -1,5 +1,6 @@
 ---
 import { siteConfigs, ui, type Lang } from "../config";
+import SectionHeading from "./SectionHeading.astro";
 
 const { lang = "es" } = Astro.props as { lang?: Lang };
 const siteConfig = siteConfigs[lang];
@@ -13,35 +14,34 @@ const hasCertifications =
     <section id="certifications" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              {t.certifications}
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+          <SectionHeading text={t.certifications} accentColor={siteConfig.accentColor} />
 
           <div class="lg:col-span-8">
             <ul class="bg-white rounded-lg shadow-sm border border-gray-100 divide-y divide-gray-100">
               {siteConfig.certifications.map((cert) => (
                 <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-4 p-4 sm:p-5">
-                  {cert.url ? (
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-base sm:text-lg font-medium text-gray-900 underline decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
-                      style={`text-decoration-color: ${siteConfig.accentColor}`}
-                    >
-                      {cert.name}
-                    </a>
-                  ) : (
-                    <span class="text-base sm:text-lg font-medium text-gray-900">
-                      {cert.name}
-                    </span>
-                  )}
+                  <div>
+                    {cert.url ? (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-base sm:text-lg font-medium text-gray-900 underline decoration-2 underline-offset-4 hover:opacity-80 transition-opacity"
+                        style={`text-decoration-color: ${siteConfig.accentColor}`}
+                      >
+                        {cert.name}
+                      </a>
+                    ) : (
+                      <span class="text-base sm:text-lg font-medium text-gray-900">
+                        {cert.name}
+                      </span>
+                    )}
+                    {cert.credentialId && (
+                      <p class="text-xs sm:text-sm text-gray-500 mt-1">
+                        {t.credentialId}: {cert.credentialId}
+                      </p>
+                    )}
+                  </div>
                   <span class="text-xs sm:text-sm text-gray-500 whitespace-nowrap">
                     {cert.date}
                   </span>

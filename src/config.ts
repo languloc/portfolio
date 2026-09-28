@@ -1,3 +1,5 @@
+type Certification = { name: string; date: string; url: string; credentialId?: string };
+
 const es = {
   name: "Luis Angulo Couso",
   title: "Data Engineer",
@@ -135,14 +137,14 @@ const es = {
   // url: enlace a la credencial (Credly, Microsoft Learn...). Vacío = sin enlace.
   certifications: [
     { name: "Databricks Data Engineer Professional", date: "En curso", url: "" },
-    { name: "Microsoft Certified: Designing and Implementing Microsoft DevOps Solutions (AZ-400)", date: "09/2026", url: "" },
-    { name: "Astronomer Certification DAG Authoring for Apache Airflow 3", date: "09/2026", url: "" },
-    { name: "Astronomer Certified AI Orchestration Fundamentals", date: "09/2026", url: "" },
-    { name: "Microsoft Certified: Azure Administrator (AZ-104)", date: "08/2026", url: "" },
-    { name: "Microsoft Certified: Azure Fundamentals (AZ-900)", date: "10/2024", url: "" },
-    { name: "SnowPro Associate: Platform Certification", date: "06/2024", url: "" },
+    { name: "Microsoft Certified: DevOps Engineer Expert (AZ-400)", date: "09/2026", url: "https://learn.microsoft.com/api/credentials/share/en-us/LuisAngulo-4991/4CD59AA27C756999?sharingId=250246F314599F1E" },
+    { name: "Astronomer Certification DAG Authoring for Apache Airflow 3", date: "09/2026", url: "https://www.credly.com/badges/2a25a7b8-f2ff-4bcb-93d5-9f01c584aeda" },
+    { name: "Astronomer Certified for AI Orchestration Fundamentals", date: "09/2026", url: "https://www.credly.com/badges/141ffe99-89e0-4b12-9a85-e63c9af31074" },
+    { name: "Microsoft Certified: Azure Administrator Associate (AZ-104)", date: "08/2026", url: "https://learn.microsoft.com/api/credentials/share/en-us/LuisAngulo-4991/F432876B57115D1E?sharingId=250246F314599F1E" },
+    { name: "SnowPro Associate: Platform Certification", date: "06/2025", url: "", credentialId: "S101997-250627-SOL" },
+    { name: "Microsoft Certified: Azure Fundamentals (AZ-900)", date: "10/2024", url: "https://learn.microsoft.com/api/credentials/share/en-us/LuisAngulo-4991/F03442009142B677?sharingId=250246F314599F1E" },
     { name: "Curso BIM Revit y Navisworks, Cámara de Comercio de León (350 horas)", date: "2023 - 2024", url: "" },
-  ],
+  ] as Certification[],
   personal: {
     intro:
       "Fuera del trabajo soy una persona entusiasta y social, amante del pueblo, de lo rural, la naturaleza y el aire libre. El deporte forma parte de mi día a día y me encanta marcarme nuevos retos.",
@@ -355,6 +357,7 @@ export const ui = {
     hello: "¡Hola! 👋",
     iam: "Soy",
     rights: "Todos los derechos reservados.",
+    credentialId: "ID de credencial",
   },
   en: {
     about: "About",
@@ -367,5 +370,6 @@ export const ui = {
     hello: "Hello! 👋",
     iam: "I'm",
     rights: "All rights reserved.",
+    credentialId: "Credential ID",
   },
 };

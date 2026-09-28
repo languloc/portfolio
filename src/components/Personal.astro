@@ -1,5 +1,6 @@
 ---
 import { siteConfigs, ui, type Lang } from "../config";
+import SectionHeading from "./SectionHeading.astro";
 
 const { lang = "es" } = Astro.props as { lang?: Lang };
 const siteConfig = siteConfigs[lang];
@@ -13,15 +14,7 @@ const hasPersonal =
     <section id="personal" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              {t.personalHeading}
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+          <SectionHeading text={t.personalHeading} accentColor={siteConfig.accentColor} />
 
           <div class="lg:col-span-8 space-y-8">
             <p class="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-600">
