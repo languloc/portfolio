@@ -26,8 +26,8 @@ const site = Astro.site ?? new URL("http://localhost:4321");
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={siteConfig.description} />
-    <link rel="alternate" hreflang="es" href={new URL("/", site).href} />
-    <link rel="alternate" hreflang="en" href={new URL("/en/", site).href} />
+    <link rel="alternate" hreflang="es" href={new URL("/es/", site).href} />
+    <link rel="alternate" hreflang="en" href={new URL("/", site).href} />
     <link rel="alternate" hreflang="x-default" href={new URL("/", site).href} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,10 +39,7 @@ const site = Astro.site ?? new URL("http://localhost:4321");
     <!-- Runs before paint to avoid a flash of the wrong theme -->
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
-      if (
-        storedTheme === "dark" ||
-        (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
+      if (storedTheme !== "light") {
         document.documentElement.classList.add("dark");
       }
     </script>

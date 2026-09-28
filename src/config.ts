@@ -12,7 +12,7 @@ const es = {
     github: "https://github.com/languloc",
   },
   aboutMe:
-    "Ingeniero de Datos con experiencia en el desarrollo y mantenimiento de plataformas de datos sobre Azure. Participo tanto en el desarrollo de pipelines ETL/ELT como en la administración de la plataforma, incluyendo infraestructura cloud, Kubernetes, Azure DevOps (CI/CD), Azure Functions y la optimización del rendimiento y los costes. Mi objetivo es seguir creciendo hacia roles de arquitectura y liderazgo técnico.",
+    "Ingeniero de Datos con experiencia en el desarrollo y mantenimiento de plataformas de datos sobre Azure. Participo tanto en el desarrollo de pipelines ETL/ELT como en la administración de la plataforma, incluyendo infraestructura cloud, Kubernetes, Azure DevOps (CI/CD), Azure Functions y la optimización del rendimiento y los costes. Uso GitHub Copilot y Claude Code como apoyo para desarrollar, probar y documentar soluciones, validando siempre sus resultados. Mi objetivo es seguir creciendo hacia roles de arquitectura y liderazgo técnico.",
   skills: [
     "Azure",
     "Databricks",
@@ -30,6 +30,8 @@ const es = {
     "PostgreSQL",
     "SQL Server",
     "GitHub Actions",
+    "GitHub Copilot",
+    "Claude Code",
   ],
   projects: [
     {
@@ -57,8 +59,8 @@ const es = {
       name: "Reporte diario de ofertas de empleo",
       description:
         "Herramienta propia que busca cada día ofertas de Data Engineering en LinkedIn, descarta consultoras analizando la industria real de cada empresa, filtra por tecnología, sector y modalidad, y envía por correo solo las novedades. Se ejecuta sola cada mañana con GitHub Actions.",
-      link: "",
-      skills: ["Python", "Web scraping", "GitHub Actions", "pytest"],
+      link: "https://github.com/languloc/linkedin-job-report",
+      skills: ["Python", "Web scraping", "GitHub Actions", "pytest", "GitHub Copilot", "Claude Code"],
     },
     {
       name: "Movie Score Pipeline",
@@ -71,7 +73,7 @@ const es = {
   experience: [
     {
       company: "Cosentino",
-      title: "Data Engineer",
+      title: "Data Engineer & DevOps",
       dateRange: "2025 - Actualidad · Madrid",
       bullets: [
         "Diseño y desarrollo de soluciones Data Engineering sobre Azure utilizando Databricks, Spark, Snowflake y Airflow.",
@@ -192,7 +194,7 @@ const en: typeof es = {
   accentColorDark: es.accentColorDark,
   social: es.social,
   aboutMe:
-    "Data Engineer with experience building and maintaining data platforms on Azure. I work both on ETL/ELT pipeline development and on platform administration, including cloud infrastructure, Kubernetes, Azure DevOps (CI/CD), Azure Functions, and performance and cost optimization. My goal is to keep growing towards architecture and technical leadership roles.",
+    "Data Engineer with experience building and maintaining data platforms on Azure. I work both on ETL/ELT pipeline development and on platform administration, including cloud infrastructure, Kubernetes, Azure DevOps (CI/CD), Azure Functions, and performance and cost optimization. I use GitHub Copilot and Claude Code to support development, testing and documentation, while validating their output. My goal is to keep growing towards architecture and technical leadership roles.",
   skills: es.skills,
   projects: [
     {
@@ -220,8 +222,8 @@ const en: typeof es = {
       name: "Daily job offers report",
       description:
         "Personal tool that searches LinkedIn every day for Data Engineering roles, filters out consultancies by checking each company's actual industry, filters by technology, sector and work mode, and emails only the new offers. It runs automatically every morning on GitHub Actions.",
-      link: "",
-      skills: ["Python", "Web scraping", "GitHub Actions", "pytest"],
+      link: "https://github.com/languloc/linkedin-job-report",
+      skills: ["Python", "Web scraping", "GitHub Actions", "pytest", "GitHub Copilot", "Claude Code"],
     },
     {
       name: "Movie Score Pipeline",
@@ -234,7 +236,7 @@ const en: typeof es = {
   experience: [
     {
       company: "Cosentino",
-      title: "Data Engineer",
+      title: "Data Engineer & DevOps",
       dateRange: "2025 - Present · Madrid",
       bullets: [
         "Design and development of Data Engineering solutions on Azure using Databricks, Spark, Snowflake and Airflow.",
@@ -293,8 +295,8 @@ const en: typeof es = {
       dateRange: "",
       achievements: [
         "Spanish: native",
-        "English: B2 (Cambridge Advanced English)",
-        "Italian: B1 (Europass Italian Language School)",
+        "English: Advanced (Cambridge Advanced English)",
+        "Italian: Intermediate (Europass Italian Language School)",
       ],
     },
   ],

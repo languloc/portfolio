@@ -5,13 +5,14 @@ const { lang = "es" } = Astro.props as { lang?: Lang };
 const siteConfig = siteConfigs[lang];
 const t = ui[lang];
 
+const home = lang === "es" ? "/es/" : "/";
 const navItems = [
-  { href: "#about", label: t.about, show: true },
-  { href: "#projects", label: t.projects, show: siteConfig.projects.length > 0 },
-  { href: "#experience", label: t.experience, show: siteConfig.experience.length > 0 },
-  { href: "#education", label: t.education, show: siteConfig.education.length > 0 },
-  { href: "#certifications", label: t.certifications, show: siteConfig.certifications.length > 0 },
-  { href: "#personal", label: t.personal, show: siteConfig.personal.interests.length > 0 },
+  { href: `${home}#about`, label: t.about, show: true },
+  { href: `${home}#projects`, label: t.projects, show: siteConfig.projects.length > 0 },
+  { href: `${home}#experience`, label: t.experience, show: siteConfig.experience.length > 0 },
+  { href: `${home}#education`, label: t.education, show: siteConfig.education.length > 0 },
+  { href: `${home}#certifications`, label: t.certifications, show: siteConfig.certifications.length > 0 },
+  { href: `${home}#personal`, label: t.personal, show: siteConfig.personal.interests.length > 0 },
 ].filter((item) => item.show);
 ---
 
