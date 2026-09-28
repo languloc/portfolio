@@ -1,5 +1,10 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfigs, ui, type Lang } from "../config";
+import LangSwitch from "./LangSwitch.astro";
+
+const { lang = "es" } = Astro.props as { lang?: Lang };
+const siteConfig = siteConfigs[lang];
+const t = ui[lang];
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
@@ -19,7 +24,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
           href="#about"
           class="text-gray-700 hover:text-black transition-colors font-medium"
         >
-          Sobre mí
+          {t.about}
         </a>
       </li>
       {
@@ -29,7 +34,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
               href="#projects"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Proyectos
+              {t.projects}
             </a>
           </li>
         )
@@ -41,7 +46,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
               href="#experience"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Experiencia
+              {t.experience}
             </a>
           </li>
         )
@@ -53,7 +58,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
               href="#education"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Formación
+              {t.education}
             </a>
           </li>
         )
@@ -65,7 +70,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
               href="#certifications"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Certificaciones
+              {t.certifications}
             </a>
           </li>
         )
@@ -77,14 +82,22 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
               href="#personal"
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
-              Personal
+              {t.personal}
             </a>
           </li>
         )
       }
+      <li>
+        <LangSwitch lang={lang} id="header" />
+      </li>
     </ul>
   </nav>
 </header>
+
+<!-- La cabecera se oculta en móvil, así que ahí el cambio de idioma va aparte -->
+<div class="md:hidden fixed top-4 right-4 z-50 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-sm">
+  <LangSwitch lang={lang} id="mobile" />
+</div>
 
 <script>
   window.addEventListener("scroll", () => {

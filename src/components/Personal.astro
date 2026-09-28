@@ -1,5 +1,9 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfigs, ui, type Lang } from "../config";
+
+const { lang = "es" } = Astro.props as { lang?: Lang };
+const siteConfig = siteConfigs[lang];
+const t = ui[lang];
 const hasPersonal =
   siteConfig.personal && siteConfig.personal.interests.length > 0;
 ---
@@ -11,7 +15,7 @@ const hasPersonal =
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           <div class="lg:col-span-4">
             <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Más allá del código
+              {t.personalHeading}
             </h2>
             <div
               class="w-[75px] h-[5px] mt-2 rounded-full"

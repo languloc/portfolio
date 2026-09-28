@@ -1,5 +1,9 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfigs, ui, type Lang } from "../config";
+
+const { lang = "es" } = Astro.props as { lang?: Lang };
+const siteConfig = siteConfigs[lang];
+const t = ui[lang];
 ---
 
 <section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24">
@@ -9,7 +13,7 @@ import { siteConfig } from "../config";
         <h2
           class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
         >
-          Sobre mí
+          {t.about}
         </h2>
         <div
           class="w-[75px] h-[5px] mt-2 rounded-full"

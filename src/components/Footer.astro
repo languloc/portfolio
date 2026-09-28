@@ -1,5 +1,9 @@
 ---
-import { siteConfig } from "../config";
+import { siteConfigs, ui, type Lang } from "../config";
+
+const { lang = "es" } = Astro.props as { lang?: Lang };
+const siteConfig = siteConfigs[lang];
+const t = ui[lang];
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
@@ -110,7 +114,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
           <a
             href="#about"
             class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-            >Sobre mí</a
+            >{t.about}</a
           >
           {
             hasProjects && (
@@ -118,7 +122,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
                 href="#projects"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Proyectos
+                {t.projects}
               </a>
             )
           }
@@ -128,7 +132,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
                 href="#experience"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Experiencia
+                {t.experience}
               </a>
             )
           }
@@ -138,7 +142,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
                 href="#education"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Formación
+                {t.education}
               </a>
             )
           }
@@ -148,7 +152,7 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
                 href="#certifications"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Certificaciones
+                {t.certifications}
               </a>
             )
           }
@@ -158,14 +162,14 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
                 href="#personal"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Personal
+                {t.personal}
               </a>
             )
           }
         </nav>
         <p class="text-sm text-gray-500">
           © {new Date().getFullYear()}
-          {siteConfig.name}. Todos los derechos reservados.
+          {siteConfig.name}. {t.rights}
         </p>
       </div>
     </div>

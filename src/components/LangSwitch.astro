@@ -1,0 +1,79 @@
+---
+import type { Lang } from "../config";
+
+const { lang, id } = Astro.props as { lang: Lang; id: string };
+
+const languages = [
+  { code: "es", href: "/", label: "Español" },
+  { code: "en", href: "/en/", label: "English" },
+] as const;
+---
+
+<span class="inline-flex items-center gap-2">
+  {
+    languages.map((language, index) => {
+      const isCurrent = language.code === lang;
+      const flag = (
+        <svg
+          class="block w-6 h-4 rounded-sm ring-1 ring-gray-300"
+          viewBox={language.code === "es" ? "0 0 750 500" : "0 0 60 30"}
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          {language.code === "es" ? (
+            <>
+              <rect width="750" height="500" fill="#AA151B" />
+              <rect y="125" width="750" height="250" fill="#F1BF00" />
+            </>
+          ) : (
+            <>
+              <clipPath id={`${id}-uk-s`}>
+                <path d="M0,0 v30 h60 v-30 z" />
+              </clipPath>
+              <clipPath id={`${id}-uk-t`}>
+                <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+              </clipPath>
+              <g clip-path={`url(#${id}-uk-s)`}>
+                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+                <path
+                  d="M0,0 L60,30 M60,0 L0,30"
+                  clip-path={`url(#${id}-uk-t)`}
+                  stroke="#C8102E"
+                  stroke-width="4"
+                />
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+              </g>
+            </>
+          )}
+        </svg>
+      );
+
+      return (
+        <>
+          {index > 0 && (
+            <span class="text-gray-400" aria-hidden="true">
+              |
+            </span>
+          )}
+          {isCurrent ? (
+            <span aria-current="true" title={language.label} aria-label={language.label}>
+              {flag}
+            </span>
+          ) : (
+            <a
+              href={language.href}
+              hreflang={language.code}
+              title={language.label}
+              aria-label={language.label}
+              class="opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition"
+            >
+              {flag}
+            </a>
+          )}
+        </>
+      );
+    })
+  }
+</span>

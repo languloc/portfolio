@@ -1,4 +1,4 @@
-export const siteConfig = {
+const es = {
   name: "Luis Angulo Couso",
   title: "Data Engineer",
   description: "Portfolio de Luis Angulo Couso, Data Engineer",
@@ -178,5 +178,194 @@ export const siteConfig = {
         description: "Lo rural y el aire libre son mi forma de desconectar.",
       },
     ],
+  },
+};
+
+const en: typeof es = {
+  name: es.name,
+  title: "Data Engineer",
+  description: "Portfolio of Luis Angulo Couso, Data Engineer",
+  accentColor: es.accentColor,
+  social: es.social,
+  aboutMe:
+    "Data Engineer with experience building and maintaining data platforms on Azure. I work both on ETL/ELT pipeline development and on platform administration, including cloud infrastructure, Kubernetes, Azure DevOps (CI/CD), Azure Functions, and performance and cost optimization. My goal is to keep growing towards architecture and technical leadership roles.",
+  skills: es.skills,
+  projects: [
+    {
+      name: "Airflow 3 migration",
+      description:
+        "End-to-end migration of Cosentino's data orchestration platform to Airflow 3.2.2.",
+      link: "",
+      skills: ["Airflow"],
+    },
+    {
+      name: "Manufacturing traceability and costs",
+      description:
+        "Improved traceability and optimized manufacturing costs across the different materials.",
+      link: "",
+      skills: [],
+    },
+    {
+      name: "Sales team KPIs",
+      description:
+        "Rolled out a key performance indicator (KPI) system for the sales team.",
+      link: "",
+      skills: [],
+    },
+    {
+      name: "Daily job offers report",
+      description:
+        "Personal tool that searches LinkedIn every day for Data Engineering roles, filters out consultancies by checking each company's actual industry, filters by technology, sector and work mode, and emails only the new offers. It runs automatically every morning on GitHub Actions.",
+      link: "",
+      skills: ["Python", "Web scraping", "GitHub Actions", "pytest"],
+    },
+    {
+      name: "Movie Score Pipeline",
+      description:
+        "ETL pipeline that reads movie data from three different providers (CSV and JSON) and merges it into a single unified dataset. Extensible design: adding a new source means adding a single class.",
+      link: "https://github.com/languloc/movie-score",
+      skills: ["Python", "ETL", "pytest"],
+    },
+  ],
+  experience: [
+    {
+      company: "Cosentino",
+      title: "Data Engineer",
+      dateRange: "2025 - Present · Madrid",
+      bullets: [
+        "Design and development of Data Engineering solutions on Azure using Databricks, Spark, Snowflake and Airflow.",
+        "Owner of the full lifecycle of the data platform: infrastructure, deployments, operations, monitoring and technology evolution.",
+        "Administration of services running on Kubernetes and development of serverless components with Azure Functions.",
+        "Implementation of CI/CD pipelines with Azure DevOps to automate infrastructure and application deployments.",
+        "Cloud cost management and performance optimization of platform resources.",
+        "Resolution of complex incidents, production support and continuous improvement of the system's architecture and reliability.",
+        "Stack: Azure DevOps, Python, SQL, REST APIs, Spark, Kubernetes, Airflow, Docker, Power BI, Databricks, Snowflake, SQL Server, PostgreSQL, GitHub Actions.",
+      ],
+    },
+    {
+      company: "TMC for Gestamp",
+      title: "Data Engineer",
+      dateRange: "2024 - 2025 · Madrid",
+      bullets: [
+        "Design and implementation of evolving data flows with Azure Data Factory and Databricks.",
+        "Building and managing data pipelines, including monitoring and improving workload performance.",
+        "Collaboration with cross-functional teams to integrate and transform data, improving data quality across the organization.",
+        "Stack: Azure Data Factory, Databricks, Spark, Airflow, SQL Server, Python.",
+      ],
+    },
+    {
+      company: "Nuve Consulting S. L.",
+      title: "Junior Consultant",
+      dateRange: "2022 - 2023 · León",
+      bullets: [
+        "Supervision of strategic projects and preparation of plans for companies, associations and public administrations.",
+        "Economic impact analysis, organizational structure design and project feasibility studies.",
+        "IT project collaboration: development of a digital marketplace in León, managing requirements and team coordination.",
+      ],
+    },
+  ],
+  education: [
+    {
+      school: "Escuela de Organización Industrial (EOI)",
+      degree: "Master in Big Data & Business Analytics",
+      dateRange: "2023 - 2024 · Madrid",
+      achievements: [
+        "Relevant subjects: Python, Java, SQL, data management, ETL, crawlers, APIs, Hadoop, Spark, Scala, MongoDB, Storm, Flink, NiFi, Kafka, Elasticsearch, R, Machine Learning, Neo4j, Cassandra, Power BI, Tableau, QGIS and data architecture.",
+      ],
+    },
+    {
+      school: "University of León",
+      degree: "Mechanical Engineering",
+      dateRange: "2017 - 2023 · León",
+      achievements: [
+        "Final degree project: pre-feasibility study for replacing a diesel train with a green hydrogen train on the León – Bilbao line.",
+        "Best Energy Efficiency Project Award from the A3E Association.",
+        "Erasmus at the Università degli Studi di Perugia (2021 - 2022).",
+      ],
+    },
+    {
+      school: "",
+      degree: "Languages",
+      dateRange: "",
+      achievements: [
+        "Spanish: native",
+        "English: B2 (Cambridge Advanced English)",
+        "Italian: B1 (Europass Italian Language School)",
+      ],
+    },
+  ],
+  certifications: es.certifications.map((cert) => ({
+    ...cert,
+    name: cert.name.replace(
+      "Curso BIM Revit y Navisworks, Cámara de Comercio de León (350 horas)",
+      "BIM Revit and Navisworks course, León Chamber of Commerce (350 hours)",
+    ),
+    date: cert.date.replace("En curso", "In progress"),
+  })),
+  personal: {
+    intro:
+      "Outside of work I'm an enthusiastic and social person who loves village life, the countryside, nature and the outdoors. Sport is part of my daily routine and I love setting myself new challenges.",
+    interests: [
+      {
+        emoji: "🏋️",
+        title: "Hyrox & CrossFit",
+        description: "My daily routine: Hyrox and CrossFit classes at the gym.",
+      },
+      {
+        emoji: "🏃",
+        title: "Running",
+        description: "After the gym I usually go for a run.",
+      },
+      {
+        emoji: "🚴",
+        title: "Cycling",
+        description: "Mountain and road biking whenever I'm back home.",
+      },
+      {
+        emoji: "🏅",
+        title: "Races & challenges",
+        description: "Triathlon, trail running and other endurance events.",
+      },
+      {
+        emoji: "⛰️",
+        title: "Mountains & snow",
+        description: "Hiking, mountaineering, skiing and snowboarding.",
+      },
+      {
+        emoji: "🌾",
+        title: "Village life & nature",
+        description: "The countryside and the outdoors are how I disconnect.",
+      },
+    ],
+  },
+};
+
+export const siteConfigs = { es, en };
+export type Lang = keyof typeof siteConfigs;
+
+export const ui = {
+  es: {
+    about: "Sobre mí",
+    projects: "Proyectos",
+    experience: "Experiencia",
+    education: "Formación",
+    certifications: "Certificaciones",
+    personal: "Personal",
+    personalHeading: "Más allá del código",
+    hello: "¡Hola! 👋",
+    iam: "Soy",
+    rights: "Todos los derechos reservados.",
+  },
+  en: {
+    about: "About",
+    projects: "Projects",
+    experience: "Experience",
+    education: "Education",
+    certifications: "Certifications",
+    personal: "Personal",
+    personalHeading: "Beyond the code",
+    hello: "Hello! 👋",
+    iam: "I'm",
+    rights: "All rights reserved.",
   },
 };
