@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* --accent-light / --accent-dark come from config.ts via the <html> style attribute */
+:root {
+  --accent: var(--accent-light);
+  --page-bg: 255 255 255;
+}
+
+.dark {
+  --accent: var(--accent-dark);
+  --page-bg: 3 7 18;
+}
+
 body {
   font-family: 'IBM Plex Mono', monospace;
 }

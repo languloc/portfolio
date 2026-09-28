@@ -5,6 +5,7 @@ const es = {
   title: "Data Engineer",
   description: "Portfolio de Luis Angulo Couso, Data Engineer",
   accentColor: "#1f5f8b",
+  accentColorDark: "#5b9fd1",
   social: {
     email: "langulocouso@gmail.com",
     linkedin: "https://www.linkedin.com/in/luisangulocouso",
@@ -167,7 +168,7 @@ const es = {
       {
         emoji: "🏅",
         title: "Carreras y retos",
-        description: "Triatlón, trail y otras pruebas de resistencia.",
+        description: "Trail y otras pruebas de resistencia.",
       },
       {
         emoji: "⛰️",
@@ -188,6 +189,7 @@ const en: typeof es = {
   title: "Data Engineer",
   description: "Portfolio of Luis Angulo Couso, Data Engineer",
   accentColor: es.accentColor,
+  accentColorDark: es.accentColorDark,
   social: es.social,
   aboutMe:
     "Data Engineer with experience building and maintaining data platforms on Azure. I work both on ETL/ELT pipeline development and on platform administration, including cloud infrastructure, Kubernetes, Azure DevOps (CI/CD), Azure Functions, and performance and cost optimization. My goal is to keep growing towards architecture and technical leadership roles.",
@@ -326,7 +328,7 @@ const en: typeof es = {
       {
         emoji: "🏅",
         title: "Races & challenges",
-        description: "Triathlon, trail running and other endurance events.",
+        description: "Trail running and other endurance events.",
       },
       {
         emoji: "⛰️",
@@ -358,6 +360,7 @@ export const ui = {
     iam: "Soy",
     rights: "Todos los derechos reservados.",
     credentialId: "ID de credencial",
+    themeToggle: "Cambiar modo claro/oscuro",
   },
   en: {
     about: "About",
@@ -371,5 +374,6 @@ export const ui = {
     iam: "I'm",
     rights: "All rights reserved.",
     credentialId: "Credential ID",
+    themeToggle: "Toggle light/dark mode",
   },
 };

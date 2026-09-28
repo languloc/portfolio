@@ -1,16 +1,20 @@
 ---
 import { siteConfigs, ui, type Lang } from "../config";
 import LangSwitch from "./LangSwitch.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 
 const { lang = "es" } = Astro.props as { lang?: Lang };
 const siteConfig = siteConfigs[lang];
 const t = ui[lang];
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
-const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
-const hasEducation = siteConfig.education && siteConfig.education.length > 0;
-const hasCertifications = siteConfig.certifications && siteConfig.certifications.length > 0;
-const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length > 0;
+const navItems = [
+  { href: "#about", label: t.about, show: true },
+  { href: "#projects", label: t.projects, show: siteConfig.projects.length > 0 },
+  { href: "#experience", label: t.experience, show: siteConfig.experience.length > 0 },
+  { href: "#education", label: t.education, show: siteConfig.education.length > 0 },
+  { href: "#certifications", label: t.certifications, show: siteConfig.certifications.length > 0 },
+  { href: "#personal", label: t.personal, show: siteConfig.personal.interests.length > 0 },
+].filter((item) => item.show);
 ---
 
 <header
@@ -19,93 +23,42 @@ const hasPersonal = siteConfig.personal && siteConfig.personal.interests.length 
 >
   <nav class="max-w-7xl mx-auto px-8 py-4">
     <ul class="flex items-center gap-8 justify-center">
-      <li>
-        <a
-          href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
-        >
-          {t.about}
-        </a>
-      </li>
       {
-        hasProjects && (
+        navItems.map((item) => (
           <li>
             <a
-              href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={item.href}
+              class="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors font-medium"
             >
-              {t.projects}
+              {item.label}
             </a>
           </li>
-        )
-      }
-      {
-        hasExperience && (
-          <li>
-            <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              {t.experience}
-            </a>
-          </li>
-        )
-      }
-      {
-        hasEducation && (
-          <li>
-            <a
-              href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              {t.education}
-            </a>
-          </li>
-        )
-      }
-      {
-        hasCertifications && (
-          <li>
-            <a
-              href="#certifications"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              {t.certifications}
-            </a>
-          </li>
-        )
-      }
-      {
-        hasPersonal && (
-          <li>
-            <a
-              href="#personal"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
-            >
-              {t.personal}
-            </a>
-          </li>
-        )
+        ))
       }
       <li>
         <LangSwitch lang={lang} id="header" />
+      </li>
+      <li class="flex">
+        <ThemeToggle lang={lang} />
       </li>
     </ul>
   </nav>
 </header>
 
-<!-- La cabecera se oculta en móvil, así que ahí el cambio de idioma va aparte -->
-<div class="md:hidden fixed top-4 right-4 z-50 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-sm">
+<!-- La cabecera se oculta en móvil, así que ahí idioma y tema van aparte -->
+<div class="md:hidden fixed top-4 right-4 z-50 flex items-center gap-3 px-3 py-1.5 rounded-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
   <LangSwitch lang={lang} id="mobile" />
+  <ThemeToggle lang={lang} />
 </div>
 
 <script>
+  const scrolledClasses = ["bg-white/80", "dark:bg-gray-950/80", "backdrop-blur-sm"];
   window.addEventListener("scroll", () => {
     const header = document.getElementById("header");
     if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
+      header?.classList.add(...scrolledClasses);
     } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+      header?.classList.remove(...scrolledClasses);
     }
   });
 </script>

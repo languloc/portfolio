@@ -1,21 +1,31 @@
 ---
-const { text, accentColor } = Astro.props as { text: string; accentColor: string };
+import { ui } from "../config";
 
-// Mono font: each character is 0.6em wide, so the longest word sets the maximum size that fits the column.
-const longestWord = Math.max(...text.split(/\s+/).map((word) => word.length));
+const { text } = Astro.props as { text: string };
+
+// Mono font: each character is 0.6em wide. Sizing every title by the longest word of any title keeps them all the same size.
+const titles = Object.values(ui).flatMap((labels) => [
+  labels.about,
+  labels.projects,
+  labels.experience,
+  labels.education,
+  labels.certifications,
+  labels.personalHeading,
+]);
+const longestWord = Math.max(...titles.flatMap((title) => title.split(/\s+/)).map((word) => word.length));
 const fitSize = `calc(100cqi / ${(longestWord * 0.62).toFixed(2)})`;
 ---
 
 <div class="lg:col-span-4" style="container-type: inline-size">
   <h2
-    class="font-bold text-gray-900 leading-[1.1] [--cap:1.875rem] sm:[--cap:2.25rem] md:[--cap:3rem] xl:[--cap:4.5rem]"
+    class="font-bold text-gray-900 dark:text-gray-100 leading-[1.1] [--cap:1.875rem] sm:[--cap:2.25rem] md:[--cap:3rem] xl:[--cap:4.5rem]"
     style={`font-size: min(var(--cap), ${fitSize})`}
   >
     {text}
   </h2>
   <div
     class="w-[75px] h-[5px] mt-2 rounded-full"
-    style={`background-color: ${accentColor}`}
+    style="background-color: var(--accent)"
   >
   </div>
 </div>
